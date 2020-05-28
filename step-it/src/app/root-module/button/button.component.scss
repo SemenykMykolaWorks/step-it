@@ -1,0 +1,121 @@
+$button-colour: #009ED8;
+$text: #ffffff;
+$button-tint: #000;
+
+.sidebar-container {
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .nav {
+    margin: 30px 30px;
+    display: flex;
+    flex-direction: row;
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: $text;
+    }
+    .first {
+      background: #FE5F55;
+      &:hover {
+        background: darken(#FE5F55, 10%);
+      }
+      &:after {
+        content: "\F054";
+      }
+      &:hover:after {
+        -webkit-animation: bounceright .3s alternate ease infinite;
+        animation: bounceright .3s alternate ease infinite;
+      }
+    }
+
+    .second {
+      background: #C673B3;
+      &:hover {
+        background: darken(#C673B3, 10%);
+      }
+      &:after {
+        content: "\F00d";
+      }
+      &:hover:after {
+        -webkit-animation: none;
+        -webkit-transform: scale(1.4);
+        animation: none;
+        transform: scale(1.4);
+      }
+    }
+  }
+  .nav li:nth-child(2) {
+    padding: 0 0 0 10px;
+  }
+
+  @media (max-width: 1024px) {
+    .nav {
+      display: flex;
+      flex-direction: column;
+    }
+    .nav li:nth-child(2) {
+      padding: 10px 0 0 0;
+    }
+  }
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  padding: .8em 1.4em;
+  padding-right: 4.7em;
+  background: $button-colour;
+  border: none;
+  color: $text;
+  transition: .2s;
+  min-width: 15em;
+  min-height: auto;
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    width: 2.8em;
+    content: "\00a0";
+    font-family: 'FontAwesome', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    transition: .2s;
+    transform-origin: 50% 60%;
+  }
+  &:before {
+    background: $button-tint;
+    opacity: 0.9;
+  }
+  &:hover {
+    background: darken($button-colour, 10%);
+  }
+  &:active,
+  &:focus {
+    background: darken($button-colour, 30%);
+    outline: none;
+  }
+}
+
+.random {
+  display: flex;
+  justify-content: center;
+  color: $button-tint;
+  margin-top: 30px;
+}
+
+@-webkit-keyframes bounceright {
+  from { -webkit-transform: translateX(0); }
+  to   { -webkit-transform: translateX(3px); }
+}
+
+@keyframes bounceright {
+  from { transform: translateX(0); }
+  to   { transform: translateX(3px); }
+}

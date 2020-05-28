@@ -1,0 +1,19 @@
+<div class="sidebar-container">
+  <nav class="menu">
+    <ul class="nav">
+      <li>
+        <a (click)="openWindow()" class="button first" [routerLink]="['/', '1']"> Open new page </a>
+      </li>
+      <li>
+        <a (click)="closeWindow()" class="button second"> Close even pages </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="random" *ngIf="id > 1">
+  <h1>Random number: {{ random }}</h1>
+</div>
+<div class="random">
+  <h1>Number of open tabs: {{ numberOfPage }}</h1>
+</div>
